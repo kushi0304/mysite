@@ -44,7 +44,8 @@ namespace WebApplication1
                 return;
             }
             StudentsList = GetStudents();
-            //TryParseを使って番号、学年、並び替え(if else)のパラメータの値を取得して、リストの編集を行う
+            //TryParseを使って番号、学年、並び替えのパラメータの値を取得して、リストの編集を行う
+            //数字じゃない文字を入れるのを防ぐ
             int number2;
             int.TryParse(Request.Form["number"], out number2);
             int age2 = int.Parse(Request.Form["age"]);
@@ -66,6 +67,16 @@ namespace WebApplication1
                 default:
             break;
             }
+            //学生番号が数字がどうか判断（int TryParseを使う）
+            if (int.TryParse(Request.QueryString["number"], out number2))
+            {
+                if (number2 >　0)
+                {
+                    //処理
+                }
+            }
+            //学年も上と同様
+            //並び替え（int tryparse)を行ってから、switch文に当てはめる
         }
         /// <summary>
         /// 学生情報用クラス
