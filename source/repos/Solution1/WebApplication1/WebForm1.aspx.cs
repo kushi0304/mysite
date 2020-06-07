@@ -17,13 +17,14 @@ namespace WebApplication1
         /// 学生情報リスト
         /// </summary>
         protected List<student> StudentsList;
-        protected void Page_Load(object sender, EventArgs e, int number)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Form["search"] != null)
             {
                 //検索ボタンを押した時
                 //numberはTryParse内では宣言出来ない
-                int.TryParse(Request.Form["number"], out int number);
+                int number;
+                int.TryParse(Request.Form["number"], out  number);
                 int age = int.Parse(Request.Form["age"]);
                 int order = int.Parse(Request.Form["order"]);
                 NameValueCollection name = System.Web.HttpUtility.ParseQueryString(string.Empty);
@@ -44,23 +45,28 @@ namespace WebApplication1
             }
             StudentsList = GetStudents();
             //TryParseを使って番号、学年、並び替え(if else)のパラメータの値を取得して、リストの編集を行う
-            int.TryParse(Request.Form["number"], out number);
-            int age = int.Parse(Request.Form["age"]);
-            int order = int.Parse(Request.Form["order"]);
-            switch ()
+            int number2;
+            int.TryParse(Request.Form["number"], out number2);
+            int age2 = int.Parse(Request.Form["age"]);
+            int order2 = int.Parse(Request.Form["order"]);
+            switch (order2)
             { 
-            case number:
-                        (Request.QueryString["number"] == "1");
+                case 1:
+                        
             break;
-            case age;
-                        (Request.QueryString["age"] == "1");
+                case 2:
+                       
             break;
-            case order;
-                        (Request.QueryString["order"] == "1");
+                case 3:
+                       
+            break;
+                case 4:
+
+            break;
+                default:
             break;
             }
         }
-    }
         /// <summary>
         /// 学生情報用クラス
         /// </summary>
