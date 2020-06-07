@@ -22,6 +22,7 @@ namespace WebApplication1
             if (Request.Form["search"] != null)
             {
                 //検索ボタンを押した時
+                //numberはTryParse内では宣言出来ない
                 int.TryParse(Request.Form["number"], out int number);
                 int age = int.Parse(Request.Form["age"]);
                 int order = int.Parse(Request.Form["order"]);
