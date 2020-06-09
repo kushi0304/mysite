@@ -53,18 +53,19 @@ namespace WebApplication1
             switch (order2)
             { 
                 case 1:
-                        
+                    order2 = 1;
             break;
                 case 2:
-                       
+                    order2 = 2;
             break;
                 case 3:
-                       
+                    order2 = 3;
             break;
                 case 4:
-
+                    order2 = 4;
             break;
                 default:
+                    order2 = 0;
             break;
             }
             //学生番号が数字がどうか判断（int TryParseを使う）
@@ -72,10 +73,17 @@ namespace WebApplication1
             {
                 if (number2 >　0)
                 {
-                    //処理
+                    
                 }
             }
             //学年も上と同様
+            if (int.TryParse(Request.QueryString["age"], out age2))
+            {
+                if (age2 > 0)
+                {
+                    
+                }
+            }
             //並び替え（int tryparse)を行ってから、switch文に当てはめる
         }
         /// <summary>
