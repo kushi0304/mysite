@@ -70,6 +70,7 @@ namespace WebApplication1
             {
                 switch (Order)
                 {
+                    // OrderByDescendingは降順を示すメソット,Tolistはリストに変換するメソット
                     case 1:
                         StudentsList = StudentsList.OrderByDescending(x => x.tall).ToList();
                         break;

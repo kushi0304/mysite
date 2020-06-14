@@ -23,6 +23,7 @@ namespace WebApplication1
             {
                 //検索ボタンを押した時
                 //numberはTryParse内では宣言出来ない
+                //　QueryString
                 int number;
                 int.TryParse(Request.Form["number"], out  number);
                 int age = int.Parse(Request.Form["age"]);
@@ -47,13 +48,16 @@ namespace WebApplication1
             //TryParseを使って番号、学年、並び替えのパラメータの値を取得して、リストの編集を行う
             //数字じゃない文字を入れるのを防ぐ
             int number2;
-            int.TryParse(Request.Form["number"], out number2);
-            int age2 = int.Parse(Request.Form["age"]);
-            int order2 = int.Parse(Request.Form["order"]);
+            int.TryParse(Request.QueryString["number"], out number2);
+            int age2;
+                int.TryParse(Request.QueryString["age"], out age2);
+            int order2;
+            int.TryParse(Request.QueryString["order"], out order2);
             switch (order2)
             { 
                 case 1:
-                    order2 = 1;
+                    
+
             break;
                 case 2:
                     order2 = 2;
