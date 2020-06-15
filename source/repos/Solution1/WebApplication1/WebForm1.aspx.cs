@@ -24,7 +24,7 @@ namespace WebApplication1
                 //検索ボタンを押した時
                 //numberはTryParse内では宣言出来ない
                 //　QueryString
-                int number;
+                int number = 0;
                 int.TryParse(Request.Form["number"], out  number);
                 int age = int.Parse(Request.Form["age"]);
                 int order = int.Parse(Request.Form["order"]);
@@ -56,20 +56,18 @@ namespace WebApplication1
             switch (order2)
             { 
                 case 1:
-                    
-
+                    StudentsList = StudentsList.OrderByDescending(x => x.tall).ToList();
             break;
                 case 2:
-                    order2 = 2;
+                    StudentsList = StudentsList.OrderBy(x => x.tall).ToList();
             break;
                 case 3:
-                    order2 = 3;
+                    StudentsList = StudentsList.OrderByDescending(x => x.wait).ToList();
             break;
                 case 4:
-                    order2 = 4;
+                    StudentsList = StudentsList.OrderBy(x => x.wait).ToList();
             break;
                 default:
-                    order2 = 0;
             break;
             }
             //学生番号が数字がどうか判断（int TryParseを使う）
@@ -77,7 +75,7 @@ namespace WebApplication1
             {
                 if (number2 >　0)
                 {
-                    
+                    StudentsList = StudentsList.Where(x => x.number == number2).ToList();
                 }
             }
             //学年も上と同様
@@ -85,7 +83,7 @@ namespace WebApplication1
             {
                 if (age2 > 0)
                 {
-                    
+                    StudentsList = StudentsList.Where(x => x.age == age2).ToList();
                 }
             }
             //並び替え（int tryparse)を行ってから、switch文に当てはめる
