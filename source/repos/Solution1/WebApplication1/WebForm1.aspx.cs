@@ -49,31 +49,34 @@ namespace WebApplication1
             //数字じゃない文字を入れるのを防ぐ
             int number2;
             int.TryParse(Request.QueryString["number"], out number2);
+
             int age2;
-                int.TryParse(Request.QueryString["age"], out age2);
+            int.TryParse(Request.QueryString["age"], out age2);
+
             int order2;
             int.TryParse(Request.QueryString["order"], out order2);
+
             switch (order2)
             { 
                 case 1:
                     StudentsList = StudentsList.OrderByDescending(x => x.tall).ToList();
-            break;
+                    break;
                 case 2:
                     StudentsList = StudentsList.OrderBy(x => x.tall).ToList();
-            break;
+                    break;
                 case 3:
                     StudentsList = StudentsList.OrderByDescending(x => x.wait).ToList();
-            break;
+                    break;
                 case 4:
                     StudentsList = StudentsList.OrderBy(x => x.wait).ToList();
-            break;
+                    break;
                 default:
-            break;
+                    break;
             }
             //学生番号が数字がどうか判断（int TryParseを使う）
             if (int.TryParse(Request.QueryString["number"], out number2))
             {
-                if (number2 >　0)
+                if (number2 > 0)
                 {
                     StudentsList = StudentsList.Where(x => x.number == number2).ToList();
                 }
